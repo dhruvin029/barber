@@ -14,7 +14,7 @@ background:#111;
 color:#fff
 }
 
-/* HERO SECTION */
+/* HERO */
 header{
 height:100vh;
 background:
@@ -34,21 +34,9 @@ letter-spacing:6px;
 color:#f5d28b;
 margin:0
 }
-header p{
-font-size:18px;
-margin:8px 0;
-color:#ddd
-}
-nav{
-position:absolute;
-top:20px
-}
-nav a{
-color:#f5d28b;
-margin:0 15px;
-text-decoration:none;
-font-weight:600
-}
+header p{font-size:18px;margin:8px 0;color:#ddd}
+nav{position:absolute;top:20px}
+nav a{color:#f5d28b;margin:0 15px;text-decoration:none;font-weight:600}
 .btn{
 margin-top:30px;
 padding:15px 34px;
@@ -59,26 +47,12 @@ font-weight:bold;
 text-decoration:none
 }
 
-/* SECTIONS */
-section{
-padding:90px 20px;
-max-width:1000px;
-margin:auto
-}
-h2{
-text-align:center;
-font-size:36px;
-margin-bottom:40px;
-color:#f5d28b
-}
+/* SECTION */
+section{padding:90px 20px;max-width:1000px;margin:auto}
+h2{text-align:center;font-size:36px;margin-bottom:40px;color:#f5d28b}
 
 /* SERVICES */
-.services{
-display:flex;
-gap:30px;
-justify-content:center;
-flex-wrap:wrap
-}
+.services{display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
 .service-box{
 border:1px solid #333;
 border-radius:16px;
@@ -87,22 +61,16 @@ width:260px;
 text-align:center;
 background:#181818
 }
-.price{
-font-size:22px;
-font-weight:bold;
-margin-top:10px;
-color:#f5d28b
-}
+.price{font-size:22px;font-weight:bold;color:#f5d28b}
 
-/* BOOKING FORM */
+/* FORM */
 form{
 margin-top:50px;
 background:#181818;
 padding:40px;
 border-radius:20px;
 max-width:600px;
-margin-left:auto;
-margin-right:auto
+margin:auto
 }
 input,select,button{
 width:100%;
@@ -118,12 +86,7 @@ color:#111;
 font-weight:bold;
 cursor:pointer
 }
-.flow{
-text-align:center;
-margin-top:20px;
-font-size:14px;
-color:#ccc
-}
+.flow{text-align:center;margin-top:20px;font-size:14px;color:#ccc}
 
 /* WHY UMA */
 .why{
@@ -132,10 +95,7 @@ padding:50px;
 border-radius:20px;
 border:1px solid #333
 }
-.why ul li{
-margin:15px 0;
-font-size:17px
-}
+.why ul li{margin:15px 0;font-size:17px}
 
 /* FOOTER */
 footer{
@@ -160,10 +120,10 @@ color:#aaa
 <h1>UMA</h1>
 <p>Classic Barber Shop • Ranip, Ahmedabad</p>
 <p>⏰ Open Daily • 9 AM – 9 PM</p>
-<a href="#services" class="btn">Book & Pay</a>
+<a href="#services" class="btn">Book Appointment</a>
 </header>
 
-<!-- SERVICES + BOOKING -->
+<!-- BOOKING -->
 <section id="services">
 <h2>Book Your Slot</h2>
 
@@ -172,32 +132,29 @@ color:#aaa
 <h3>Hair Cut</h3>
 <p class="price">₹120</p>
 </div>
-
 <div class="service-box">
 <h3>Beard Shaving</h3>
 <p class="price">₹60</p>
 </div>
 </div>
 
-<form onsubmit="payNow(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
+<form onsubmit="sendBooking(event)">
+<input id="name" type="text" placeholder="Your Name" required>
+<input id="phone" type="tel" placeholder="Your Mobile Number" required>
 
-<select id="amount" required>
+<select id="service" required>
 <option value="">Select Service</option>
-<option value="120">Hair Cut – ₹120</option>
-<option value="60">Beard Shaving – ₹60</option>
+<option value="Hair Cut (₹120)">Hair Cut – ₹120</option>
+<option value="Beard Shaving (₹60)">Beard Shaving – ₹60</option>
 </select>
 
-<input type="date" required>
-<input type="time" min="09:00" max="21:00" required>
+<input id="date" type="date" required>
+<input id="time" type="time" min="09:00" max="21:00" required>
 
-<button type="submit">Pay with UPI</button>
+<button type="submit">Book Appointment</button>
 
 <div class="flow">
-Select service → Choose date & time → Pay with UPI → Done ✔️
-<br>
-Google Pay • PhonePe • Paytm Supported
+Fill form → Send booking → Confirmation message ✔️
 </div>
 </form>
 </section>
@@ -205,20 +162,18 @@ Google Pay • PhonePe • Paytm Supported
 <!-- WHY UMA -->
 <section id="why">
 <h2>Why Choose UMA</h2>
-
 <div class="why">
 <ul>
-<li>✂️ Classic & modern barber skills</li>
-<li>🧼 Clean, hygienic shop environment</li>
-<li>⏰ Fixed slot booking – no waiting</li>
-<li>💰 Honest & affordable pricing</li>
-<li>📍 Trusted local barber in Ranip, Ahmedabad</li>
-<li>📱 Simple UPI payment</li>
+<li>✂️ Experienced barber</li>
+<li>🧼 Clean & hygienic shop</li>
+<li>⏰ Fixed slot booking</li>
+<li>💰 Affordable pricing</li>
+<li>📍 Ranip, Ahmedabad</li>
+<li>📱 Easy WhatsApp booking</li>
 </ul>
-
 <p>
-UMA Barber Shop is built for customers who value style, time, and comfort.
-Book online, pay easily, and enjoy a perfect grooming experience.
+Thank you for choosing UMA Barber Shop.
+We look forward to serving you!
 </p>
 </div>
 </section>
@@ -229,25 +184,39 @@ Book online, pay easily, and enjoy a perfect grooming experience.
 </footer>
 
 <script>
-function payNow(e){
+function sendBooking(e){
 e.preventDefault();
 
-let amount=document.getElementById("amount").value;
-if(!amount){
-alert("Please select a service");
-return;
-}
+/* 🔴 CHANGE THIS TO YOUR WHATSAPP NUMBER */
+let shopNumber = "919313398903"; // example: 91 + number
 
-/* 🔴 YOUR UPI ID */
-let upiID="dhruvin029-1@okhdfcbank";
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let service = document.getElementById("service").value;
+let date = document.getElementById("date").value;
+let time = document.getElementById("time").value;
 
-let upiURL=
-"upi://pay?pa="+upiID+
-"&pn=UMA%20Barber%20Shop"+
-"&am="+amount+
-"&cu=INR";
+/* Message YOU receive */
+let ownerMessage =
+"New Appointment Booking%0A%0A"+
+"Name: "+name+"%0A"+
+"Mobile: "+phone+"%0A"+
+"Service: "+service+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time;
 
-window.location.href=upiURL;
+/* Appreciation message CUSTOMER sees */
+let customerMessage =
+"Thank you "+name+" for booking your appointment at UMA Barber Shop.%0A"+
+"Your slot is booked for "+date+" at "+time+".%0A"+
+"We look forward to serving you!";
+
+/* WhatsApp redirect */
+let whatsappURL =
+"https://wa.me/"+shopNumber+
+"?text="+ownerMessage+"%0A%0A"+customerMessage;
+
+window.location.href = whatsappURL;
 }
 </script>
 
